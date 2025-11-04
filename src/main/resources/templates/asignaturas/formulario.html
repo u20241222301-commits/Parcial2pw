@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Asignatura</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<h2>Formulario de Asignatura</h2>
+
+<form th:action="@{/asignaturas/guardar}" th:object="${asignatura}" method="post">
+    <input type="hidden" th:field="*{id}"/>
+
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" maxlength="30" required>
+
+    <label>Descripción:</label>
+    <textarea th:field="*{descripcion}" maxlength="100"></textarea>
+
+    <label>Salón:</label>
+    <input type="number" th:field="*{salon}" required>
+
+    <label>Hora de inicio:</label>
+    <input type="time" th:field="*{horaInicio}" required>
+
+    <label>Hora de fin:</label>
+    <input type="time" th:field="*{horaFin}" required>
+
+    <label>Docente Encargado:</label>
+    <input type="text" th:field="*{docenteEncargado}" required>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<br>
+<a th:href="@{/asignaturas/lista}">Volver</a>
+</body>
+</html>

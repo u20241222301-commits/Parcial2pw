@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel del Rector</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<h2>Bienvenido Rector</h2>
+<p>Puede crear, modificar, eliminar y visualizar asignaturas.</p>
+
+<a th:href="@{/asignaturas/nueva}">Crear nueva asignatura</a><br>
+<a th:href="@{/asignaturas/lista}">Ver asignaturas</a>
+
+</body>
+</html>

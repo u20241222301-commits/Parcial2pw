@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Asignaturas</title>
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+</head>
+<body>
+<h2>Listado de Asignaturas</h2>
+
+<a th:href="@{/asignaturas/nueva}">Nueva Asignatura</a>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Salón</th>
+            <th>Horario</th>
+            <th>Docente Encargado</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="asig : ${asignaturas}">
+            <td th:text="${asig.id}"></td>
+            <td th:text="${asig.nombre}"></td>
+            <td th:text="${asig.descripcion}"></td>
+            <td th:text="${asig.salon}"></td>
+            <td th:text="${asig.horaInicio + ' - ' + asig.horaFin}"></td>
+            <td th:text="${asig.docenteEncargado}"></td>
+            <td>
+                <a th:href="@{/asignaturas/editar/{id}(id=${asig.id})}">Editar</a> |
+                <a th:href="@{/asignaturas/eliminar/{id}(id=${asig.id})}">Eliminar</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<br>
+<a th:href="@{/auth/login}">Volver</a>
+</body>
+</html>
