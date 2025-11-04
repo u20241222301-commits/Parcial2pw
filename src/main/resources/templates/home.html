@@ -6,6 +6,9 @@
 </head>
 <body>
     <h1>Bienvenido <span th:text="${role}"></span></h1>
-    <a th:href="@{/logout}">Cerrar sesión</a>
+    <form th:action="@{/logout}" method="post">
+    <button type="submit">Cerrar sesión</button>
+</form>
+
 </body>
 </html>
